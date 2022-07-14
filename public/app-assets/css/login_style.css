@@ -1,0 +1,132 @@
+.signup-wrapper {
+    background-image: url(../images/sign-bg.png);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 126px 0px 81px;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+h1.signup-heading:before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    max-width: 26%;
+    height: 5px;
+    background-color: #ff4848;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+.form-wrapper {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+.form-wrapper h1.signup-heading {
+    color: #202020;
+    font-size: 35px;
+    margin-bottom: 35px;
+    position:relative;
+}
+.form-wrapper form {
+    margin-top: 40px;
+}
+.checkbox-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.form-wrapper button.btn.btn-primary ,
+.form-wrapper button.btn.btn-primary:focus{
+    width: 100%;
+    margin: 20px 0px 0px;
+    background-color: #f33;
+    border: 0;
+    padding: 8px 0px;
+    font-size: 20px;
+    box-shadow:none;
+}
+.forgot-password a.forgot-pass {
+    color: #303030;
+    font-size: 13px;
+    font-family: inherit;
+}
+.form-wrapper a.register-bttn {
+    color: #303030;
+    font-size: 17px;
+    text-decoration: underline;
+}
+.form-wrapper p.text {
+    margin: 10px 0px;
+    font-size: 15px;
+}
+.form-control:focus{
+    box-shadow: none;
+}
+.checkbox-wrapper label.form-check-label {
+    vertical-align: initial;
+    align-items:center;
+}
+.foot---sec {
+    background-color: #272727;
+    padding: 10px;
+    text-align: center;
+}
+.foot---sec p{
+    color: #655e5e;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+p.register-text {
+    margin: 20px 0px;
+    font-size:16px;
+    color:#303030;
+}
+a.signin-bttn {
+    color: #ff3f3f;
+    font-weight: bold;
+}
+tr.cart-details td {
+    color: #000;
+    font-size: 21px;
+    font-family: 'SF UI Display';
+    font-weight: 600;
+}
+tr.cart-details {
+    background-color: transparent !important;
+    border-top: 2px solid #f33 !important;
+}
+section.single-courses-details-sec a.add-to-cart-icon {
+    background-color: #f33;
+    padding: 11px 38px;
+    border-radius: 10px;
+    color: #ffff;
+}
+section.single-courses-details-sec .add-to-cart-icon{
+   text-align: end;
+   margin-bottom:20px;
+}
+section.single-courses-details-sec td {
+    color: #202020;
+    font-size: 16px;
+    font-family: 'SF UI Display';
+}
+div#accordion .btn {
+    white-space: unset;
+    position: relative;
+}
+span.timer {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    color: #f33;
+}
+span.text-error {
+    color: red !important;
+    font-weight: bold !important;
+}

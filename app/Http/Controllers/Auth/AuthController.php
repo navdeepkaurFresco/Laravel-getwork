@@ -1,0 +1,59 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Session;
+
+class AuthController extends Controller
+{
+    public function index()
+    {
+        return view('auth.login');
+    }
+
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email'=>'required',
+            'password'=>'required'
+        ]);
+        $credentials = $request->only('email', 'password');
+       
+        $data=User::where(['email'=>$credentials['email']])->first();
+  
+        if(!empty($data)){
+           $password = Crypt::decryptString($data->password);
+           if($password === $credentials['password']){
+            session(['username'=>$data->name,'email'=>$data->email,'role'=>$data->role]);
+            if($data->is_active == 1){
+                if($data->role == 1){
+                    return view('superadmin.dashboard');
+                }elseif($data->role == 2){
+                    echo "Assessor";
+                }elseif($data->role == 3){
+                    echo "Learner";
+                }else{
+                    echo "Trainer";
+                }
+            }else{
+                $request->session()->flash('message','Your account is deactivated, please contact with your admin...!',);
+                return redirect('/');
+            }
+           }else{
+            $request->session()->flash('message','Your password is incorrect...!');
+            return redirect('/');
+           }
+        }else{
+            $request->session()->flash('message','User not exist...!');
+            return redirect('/');
+        }
+     
+        
+    }
+    
+}
