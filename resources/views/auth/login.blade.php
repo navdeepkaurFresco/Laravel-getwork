@@ -1,16 +1,13 @@
 
 @extends('layout')
 @section('content')
+{{ Auth::user() }}
 <main class="site-main" style="background-color: #78909c;">
     <div class="site-main signup-wrapper">
         <div class="container">
             <div class="row" style="">
                     <div class="col-lg-5 col-sm-12 col-md-8 col-12 m-auto">
-                    @if(Session::has('message'))
-                    <div class="alert alert-success">
-                        {{Session::get('success')}}
-                    </div>
-                    @endif
+                         @include('flash-messages')
                         <div class="form-wrapper">
                             <form name="form" method="POST" action="{{url('login')}}">
                             @csrf

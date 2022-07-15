@@ -18,12 +18,14 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(1)->create();
 
         \App\Models\User::factory()->create([
+            'uuid'=>Str::uuid(36),
             'name' => 'Navdeep Kaur',
             'email' => 'navdeepkaur.fresco@gmail.com',
             'role'  =>1,
             'email_verified_at' => now(),
             'password' => Crypt::encryptString('Fresco@123'),
             'remember_token' => Str::random(10),
+          
         ]);
     }
 }

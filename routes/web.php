@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\SuperAdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +18,5 @@ use App\Http\Controllers\Auth\AuthController;
 Route::get('/', [AuthController::class,'index']);
 // Route::post('/login',[AuthController::class,'login']);
 Route::post('login', [AuthController::class,'login']);
+Route::get('admin-dashboard',[SuperAdminController::class,'index']);
+Route::get('add-subscriber',[SuperAdminController::class,'addSubscriber']);

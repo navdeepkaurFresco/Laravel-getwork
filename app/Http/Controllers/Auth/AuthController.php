@@ -29,28 +29,29 @@ class AuthController extends Controller
         if(!empty($data)){
            $password = Crypt::decryptString($data->password);
            if($password === $credentials['password']){
-            session(['username'=>$data->name,'email'=>$data->email,'role'=>$data->role]);
+            Session::put('login',['username'=>$data->name,'email'=>$data->email,'role'=>$data->role]);
             if($data->is_active == 1){
                 if($data->role == 1){
-                    return view('superadmin.dashboard');
+                    return redirect('admin-dashboard')->with('success','Login Successfully..!');
                 }elseif($data->role == 2){
-                    echo "Assessor";
+                    return redirect('dashboard')->with('success','Login Successfully..!');
                 }elseif($data->role == 3){
-                    echo "Learner";
+                    return redirect('dashboard')->with('success','Login Successfully..!');
                 }else{
-                    echo "Trainer";
+                    return redirect('dashboard')->with('success','Login Successfully..!');
                 }
+               
             }else{
-                $request->session()->flash('message','Your account is deactivated, please contact with your admin...!',);
-                return redirect('/');
+                // $request->session()->flash('message','Your account is deactivated, please contact with your admin...!',);
+                return redirect('/')->with('error','Your account is deactivated, please contact with your admin...!');
             }
            }else{
-            $request->session()->flash('message','Your password is incorrect...!');
-            return redirect('/');
+            // $request->session()->flash('message','Your password is incorrect...!');
+            return redirect('/')->with('error','Your password is incorrect...!');
            }
         }else{
-            $request->session()->flash('message','User not exist...!');
-            return redirect('/');
+            // $request->session()->flash('message','User not exist...!');
+            return redirect('/')->with('error','User not exist...!');
         }
      
         

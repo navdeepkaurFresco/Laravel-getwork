@@ -18,16 +18,4 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/public/app-assets/css/core/menu/menu-types/vertical-compact-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/public/app-assets/css/core/colors/palette-gradient.css') }}">
   </head>
-  <style>
-  div#myDiv {
-    position: absolute;
-    top: 20px;
-    box-shadow: 5px 5px;
-    width: 26%;
-    right: 9px;
-    text-align: center;
-    font-size: 17px;
-    font-weight: bold;
-}
-  </style>
   <body>
